@@ -1,7 +1,7 @@
 # Project 3: Around The U.S.
 
 [Link to GitHub Page]
-https://github.com/Mabayasimon/se_project_aroundtheus/blob/main/README.md/
+(https://github.com/Mabayasimon/se_project_aroundtheus/blob/main/README.md/)
 
 [Link to Website](https://mabayasimon.github.io/se_project_aroundtheus/)
 
