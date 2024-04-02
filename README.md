@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-[Link to GitHub Pages](https://mabayasimon.github.io/se_project_aroundtheus/)
+[Link to Website](https://mabayasimon.github.io/se_project_aroundtheus/)
 
 # Project Name
 
@@ -26,10 +26,11 @@ Include screenshots, pictures, or GIFs that detail the project features. Provide
 ![Screenshot 1](./images/screenshot1.png)
 Resposive design for Desktop
 
-![Screenshot 1](./images/screenshot2.png)
+![Screenshot 2](./images/screenshot2.png)
 Resposive design for Tablet
 
-![Screenshot 1](./images/screenshot3.png)
+![Screenshot 3](./images/screenshot3.png)
+
 Resposive design for Mobile
 
 ## Video Link
