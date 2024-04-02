@@ -1,6 +1,9 @@
 # Project 3: Around The U.S.
 
+[Link to GitHub Page](https://mabayasimon.github.io/se_project_aroundtheus/)
 [Link to Website](https://mabayasimon.github.io/se_project_aroundtheus/)
+
+
 
 # Project Name
 
