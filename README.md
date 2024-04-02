@@ -1,16 +1,46 @@
 # Project 3: Around The U.S.
 
-[Link to GitHub Pages](https://your-github-pages-link.com)
+[Link to GitHub Pages](https://mabayasimon.github.io/se_project_aroundtheus/)
+
+# Project Name
+
+Around The U.S.
+
+## Description
+
+The "Around the US" project is a web application showcasing various famous places across the United States. The home page features a curated selection of cards highlighting these iconic destinations, providing users with a glimpse into the diverse landscapes, landmarks, and attractions found throughout the country. Each card offers a brief overview of the location, accompanied by captivating imagery to inspire users to explore and discover the beauty of the United States.
+
+## Technologies and Techniques Used
+
+- HTML5: Used for structuring the web pages.
+  . Sematic HTML5
+- CSS3: Used for styling, layout design and animation.
+  . BEM
+  . Flexbox
+  . Grid
+
+## Screenshots
+
+Include screenshots, pictures, or GIFs that detail the project features. Provide captions or descriptions if necessary.
+
+![Screenshot 1](./images/screenshot1.png)
+Resposive design for Desktop
+
+![Screenshot 1](./images/screenshot2.png)
+Resposive design for Tablet
+
+![Screenshot 1](./images/screenshot3.png)
+Resposive design for Mobile
+
+## Video Link
+
+[Link to Google Drive](https://drive.google.com/file/d/1CrEJpvGAuLGDMXcB7MrROz7abOmqNbjR/view?usp=drive_link)
 
 ### Overview
 
 - Intro
 - Figma
 - Images
-
-**Intro**
-
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
 
 **Figma**
 
@@ -21,35 +51,3 @@ This project is made so all the elements are displayed correctly on popular scre
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
 
 Good luck and have fun!
-
-# Project Name
-
-## Description
-
-Briefly describe the project and its functionality. Include key features and any unique aspects.
-
-## Technologies and Techniques Used
-
-List the technologies and techniques used in the project. This may include programming languages, frameworks, libraries, tools, methodologies, etc.
-
-## Screenshots
-
-Include screenshots, pictures, or GIFs that detail the project features. Provide captions or descriptions if necessary.
-
-![Screenshot 1](/path/to/screenshot1.png)
-Caption for Screenshot 1
-
-![Screenshot 2](/path/to/screenshot2.png)
-Caption for Screenshot 2
-
-## How to Use
-
-Provide instructions on how to use the project or any installation/setup steps if applicable.
-
-## Credits
-
-If you used any third-party resources or code snippets, give credit to the authors or provide links to their work.
-
-## License
-
-Specify the project's license if applicable.
