@@ -80,9 +80,12 @@
   }
 
   .profile__title {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 30px;
     max-width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__description {
