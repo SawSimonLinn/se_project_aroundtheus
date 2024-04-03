@@ -23,17 +23,8 @@ The "Around the US" project is a web application showcasing various famous place
 
 ## Screenshots
 
-Include screenshots, pictures, or GIFs that detail the project features. Provide captions or descriptions if necessary.
-
-![Screenshot 1](./images/screenshot1.png)
-Resposive design for Desktop
-
-![Screenshot 2](./images/screenshot2.png)
-Resposive design for Tablet
-
-![Screenshot 3](./images/screenshot3.png)
-
-Resposive design for Mobile
+![Screenshot 1](./images/responsive_layout.gif)
+Resposive design
 
 ## Video Link
 
