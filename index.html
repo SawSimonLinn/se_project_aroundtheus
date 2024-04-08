@@ -28,6 +28,7 @@
               type="button"
               aria-label="Edit"
               class="profile__edit-button"
+              id="profile__edit-button"
             ></button>
             <p class="profile__description">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis,
@@ -141,22 +142,22 @@
       </footer>
     </div>
 
-    <div class="modal modal_opened">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button"></button>
+        <button class="modal__close-button" id="modal__close-button"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
           <input
             type="text"
             name="profile__title"
             class="modal__title"
-            value="Jacques Cousteau"
+            placeholder="Jacques Cousteau"
           />
           <input
             type="text"
             name="profile__description"
             class="modal__description"
-            value="Explorer"
+            placeholder="Explorer"
           />
           <button class="modal__button">Save</button>
         </form>
