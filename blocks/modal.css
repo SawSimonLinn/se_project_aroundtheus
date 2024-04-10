@@ -17,6 +17,7 @@
 .modal__container {
   background-color: #fff;
   width: 430px;
+  height: 330px;
   margin: auto;
   padding: 36px;
   border-radius: 10px;
@@ -57,14 +58,14 @@
 
 .modal__title {
   margin-bottom: 30px;
-  padding: 13px 0;
+  padding: 13px 5px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .modal__description {
   margin: 0;
-  padding: 13px 0;
+  padding: 13px 5px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
