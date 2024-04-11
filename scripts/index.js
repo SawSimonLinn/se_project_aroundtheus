@@ -57,6 +57,8 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
 
   cardTitleEl.textContent = cardData.name;
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
   return cardElement;
 }
 /*-------------------------------------------------*/
@@ -85,3 +87,7 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
+
+for (let i = 0; i < initialCards.length; i++) {
+  console.log(`Hello  ${initialCards[i].link}`);
+}
