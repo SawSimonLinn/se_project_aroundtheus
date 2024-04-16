@@ -47,6 +47,7 @@
       </footer>
     </div>
 
+    <!-- Edit Modal -->
     <div class="modal" id="profile__edit-modal">
       <div class="modal__container">
         <button
@@ -70,6 +71,37 @@
             class="modal__input"
             id="profile__description-input"
             placeholder="About"
+            required
+          />
+          <button type="submit" class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add card modal -->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="modal__close-button"
+        ></button>
+        <h3 class="modal__heading">New Place</h3>
+        <form class="modal__form">
+          <input
+            type="text"
+            name="title"
+            class="modal__input modal__input_type_title"
+            id="profile__title-input"
+            placeholder="Title"
+            required
+          />
+          <input
+            type="text"
+            name="url"
+            class="modal__input modal__input_type_url"
+            id="profile__description-input"
+            placeholder="Image URL"
             required
           />
           <button type="submit" class="modal__button">Save</button>
