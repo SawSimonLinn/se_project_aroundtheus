@@ -8,20 +8,52 @@
   z-index: 99;
   display: none;
   padding: 0 19px;
+  visibility: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__container {
   background-color: #fff;
-  width: 430px;
+  max-width: 430px;
   height: 330px;
+  width: 100%;
   margin: auto;
   padding: 36px;
   border-radius: 10px;
   position: relative;
+}
+
+.modal__content_type_preview {
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: auto;
+  background: transparent;
+}
+
+.modal__image {
+  max-width: 100%;
+  max-height: calc(75vh - 20px);
+  object-fit: cover;
+}
+
+.modal__caption {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.5px;
+  color: #fff;
+  margin: 10px 0;
 }
 
 .modal__heading {
