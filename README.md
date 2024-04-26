@@ -1,12 +1,8 @@
 # Project 3: Around The U.S.
 
-[Link to Website](https://sawsimonlinn.github.io/se_project_aroundtheus/)
+[Link to "Around The U.S." Website](https://sawsimonlinn.github.io/se_project_aroundtheus/)
 
 [Link to GitHubPage](https://github.com/SawSimonLinn/se_project_aroundtheus)
-
-# Project Name
-
-Around The U.S.
 
 ## Description
 

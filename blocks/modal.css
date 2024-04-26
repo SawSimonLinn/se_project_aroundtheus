@@ -24,9 +24,8 @@
 
 .modal__container {
   background-color: #fff;
-  max-width: 430px;
+  width: 430px;
   height: 330px;
-  width: ;
   margin: auto;
   padding: 36px;
   border-radius: 10px;
