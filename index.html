@@ -62,16 +62,28 @@
               class="modal__input"
               id="profile__title-input"
               placeholder="Name"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span
+              class="modal__error_visible"
+              id="profile__title-input-error"
+            ></span>
             <input
               type="text"
               name="profile__description"
               class="modal__input"
               id="profile__description-input"
               placeholder="About"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span
+              class="modal__error_visible"
+              id="profile__description-input-error"
+            ></span>
             <button type="submit" class="modal__button">Save</button>
           </form>
         </div>
@@ -91,19 +103,35 @@
               type="text"
               name="title"
               class="modal__input modal__input_type_title"
-              id="profile__title-input"
+              id="image__title-input"
               placeholder="Title"
+              minlength="1"
+              maxlength="30"
               required
             />
+            <span
+              class="modal__error_visible"
+              id="image__title-input-error"
+            ></span>
             <input
               type="text"
               name="url"
               class="modal__input modal__input_type_url"
-              id="profile__description-input"
+              id="image__url-input"
               placeholder="Image URL"
               required
             />
-            <button type="submit" class="modal__button">Save</button>
+            <span
+              class="modal__error_visible"
+              id="image__url-input-error"
+            ></span>
+            <button
+              type="submit"
+              class="modal__button modal__button_disabled"
+              disabled
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -140,5 +168,6 @@
     </template>
 
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
