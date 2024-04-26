@@ -155,3 +155,19 @@ imageModalCloseButton.addEventListener("click", () =>
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
+
+function handleKeyDown(event) {
+  if (event.key === "Escape") {
+    const modals = document.querySelectorAll(".modal_opened");
+    modals.forEach(closeModal);
+  }
+}
+
+function handleOverlayClick(event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(event.target);
+  }
+}
+
+document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("click", handleOverlayClick);
