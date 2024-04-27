@@ -1,3 +1,25 @@
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+enableValidation(config);
+
+function enableValidation(options) {
+  const formElements = [...document.querySelectorAll(options.formSelector)];
+  formElements.forEach((formElement) => {
+    formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+    setEventListeners(formElement, options, options.submitButtonSelector);
+  });
+}
+
+enableValidation(options);
+
 function showInputError(
   formElement,
   inputElement,
@@ -70,23 +92,3 @@ function setEventListeners(formElement, options) {
     });
   });
 }
-
-function enableValidation(options) {
-  const formElements = [...document.querySelectorAll(options.formSelector)];
-  formElements.forEach((formElement) => {
-    formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    setEventListeners(formElement, options);
-  });
-}
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-enableValidation(config);
