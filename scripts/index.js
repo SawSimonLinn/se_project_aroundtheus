@@ -89,6 +89,7 @@ function closeModal(modal) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleKeyDown);
 }
 
 function renderCard(cardData, wrapper) {
@@ -168,8 +169,6 @@ const handleKeyDown = (e) => {
     modals.forEach(closeModal);
   }
 };
-
-document.addEventListener("keydown", handleKeyDown);
 
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (e) => {
