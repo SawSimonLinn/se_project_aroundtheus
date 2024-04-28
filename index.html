@@ -15,14 +15,14 @@
           class="header__logo"
         />
       </header>
-      <main class="content">
+      <main class="content" id="content">
         <section class="profile page__section">
           <img
             src="./images/jacques-cousteau.jpg"
             alt="Jacques Cousteau avatar"
             class="profile__image"
           />
-          <div class="profile__info">
+          <div class="profile__info" id="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
@@ -36,6 +36,7 @@
             type="button"
             aria-label="Add"
             class="profile__add-button"
+            id="profile__add-button"
           ></button>
         </section>
         <section class="card">
@@ -54,36 +55,42 @@
             class="modal__close-button"
             id="modal__close-button"
           ></button>
+
           <h3 class="modal__heading">Edit profile</h3>
-          <form class="modal__form">
-            <input
-              type="text"
-              name="profile__title"
-              class="modal__input"
-              id="profile__title-input"
-              placeholder="Name"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span
-              class="modal__error_visible"
-              id="profile__title-input-error"
-            ></span>
-            <input
-              type="text"
-              name="profile__description"
-              class="modal__input"
-              id="profile__description-input"
-              placeholder="About"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span
-              class="modal__error_visible"
-              id="profile__description-input-error"
-            ></span>
+          <form class="modal__form" name="profile-form">
+            <label class="modal__error-wrapper">
+              <input
+                type="text"
+                name="profile__title"
+                class="modal__input"
+                id="profile__title-input"
+                placeholder="Name"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+
+              <span
+                class="modal__error_visible"
+                id="profile__title-input-error"
+              ></span>
+            </label>
+            <label class="modal__error-wrapper">
+              <input
+                type="text"
+                name="profile__description"
+                class="modal__input"
+                id="profile__description-input"
+                placeholder="About"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="modal__error_visible"
+                id="profile__description-input-error"
+              ></span>
+            </label>
             <button type="submit" class="modal__button">Save</button>
           </form>
         </div>
@@ -97,34 +104,37 @@
             class="modal__close-button"
             id="modal__close-button"
           ></button>
+
           <h3 class="modal__heading">New Place</h3>
-          <form class="modal__form">
-            <input
-              type="text"
-              name="add-card__title"
-              class="modal__input modal__input_type_title"
-              id="image__title-input"
-              placeholder="Title"
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span
-              class="modal__error_visible"
-              id="image__title-input-error"
-            ></span>
-            <input
-              type="url"
-              name="add-card__url"
-              class="modal__input modal__input_type_url"
-              id="image__url-input"
-              placeholder="Image URL"
-              required
-            />
-            <span
-              class="modal__error_visible"
-              id="image__url-input-error"
-            ></span>
+          <form class="modal__form" name="card-form">
+            <label class="modal__error-wrapper">
+              <input
+                type="text"
+                class="modal__input modal__input_type_title"
+                id="image__title-input"
+                placeholder="Title"
+                minlength="1"
+                maxlength="30"
+                required
+              />
+              <span
+                class="modal__error_visible"
+                id="image__title-input-error"
+              ></span>
+            </label>
+            <label class="modal__error-wrapper">
+              <input
+                type="url"
+                class="modal__input modal__input_type_url"
+                id="image__url-input"
+                placeholder="Image URL"
+                required
+              />
+              <span
+                class="modal__error_visible"
+                id="image__url-input-error"
+              ></span>
+            </label>
             <button
               type="submit"
               class="modal__button modal__button_disabled"
