@@ -30,7 +30,6 @@ const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
 
 // wrapper
-
 const cardListElement = document.querySelector("#card__list");
 const profileEditModal = document.querySelector("#profile__edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
@@ -39,11 +38,8 @@ const previewImageModal = document.querySelector("#image-modal");
 // Form
 const profileFormElement = document.forms["profile-form"];
 const addCardFormElement = document.forms["card-form"];
-const profileEditForm = document.querySelector(".modal__form");
 
-const cardTitle = addCardFormElement.querySelector("#image__title-input");
-const cardUrl = addCardFormElement.querySelector("#image__url-input");
-
+// Modal
 const previewImageElement = previewImageModal.querySelector(".modal__image");
 const previewImageTextElement =
   previewImageModal.querySelector(".modal__caption");
@@ -64,6 +60,9 @@ const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 // Form data
+const cardTitle = addCardFormElement.querySelector("#card__title-input");
+const cardUrl = addCardFormElement.querySelector("#card__url-input");
+
 const profileTitleInput = profileFormElement.querySelector(
   "#profile__title-input"
 );
@@ -76,7 +75,6 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 // Function
-
 function resetForm() {
   cardTitle.value = "";
   cardUrl.value = "";
@@ -149,7 +147,7 @@ function fillProfileForm() {
 
 // Form Listner
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 profileEditButton.addEventListener("click", () => {
   fillProfileForm();
