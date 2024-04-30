@@ -21,9 +21,10 @@
             src="./images/jacques-cousteau.jpg"
             alt="Jacques Cousteau avatar"
             class="profile__image"
+            id="profile__image"
           />
           <div class="profile__info" id="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
               aria-label="Edit"
@@ -35,8 +36,8 @@
           <button
             type="button"
             aria-label="Add"
-            class="profile__add-button"
-            id="profile__add-button"
+            class="profile__add-card-button"
+            id="profile__add-card-button"
           ></button>
         </section>
         <section class="card">
@@ -61,7 +62,6 @@
             <label class="modal__error-wrapper">
               <input
                 type="text"
-                name="profile__title"
                 class="modal__input"
                 id="profile__title-input"
                 placeholder="Name"
@@ -78,7 +78,6 @@
             <label class="modal__error-wrapper">
               <input
                 type="text"
-                name="profile__description"
                 class="modal__input"
                 id="profile__description-input"
                 placeholder="About"
@@ -160,18 +159,19 @@
 
     <template id="card__template">
       <li class="card__list-item">
-        <img src="" alt="" class="card__image" />
+        <img class="card__image" id="card__image" />
         <button
           class="card__delete-button"
           id="card__delete-button"
           type="button"
         ></button>
-        <div class="card__info">
-          <h2 class="card__title"></h2>
+        <div class="card__info" id="card__info">
+          <h2 class="card__title" id="card__title"></h2>
           <button
             type="button"
             aria-label="Like"
             class="card__like-button"
+            id="card__like-button"
           ></button>
         </div>
       </li>

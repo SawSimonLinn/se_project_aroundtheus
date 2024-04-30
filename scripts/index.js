@@ -55,9 +55,9 @@ const addCardModalCloseButton = addCardModal.querySelector(
 const imageModalCloseButton = previewImageModal.querySelector(
   "#modal__close-button"
 );
-const profileTitle = document.querySelector(".profile__title");
+const profileTitle = document.querySelector("#profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const addNewCardButton = document.querySelector(".profile__add-button");
+const addNewCardButton = document.querySelector("#profile__add-card-button");
 
 // Form data
 const cardTitle = addCardFormElement.querySelector("#card__title-input");
@@ -69,20 +69,19 @@ const profileTitleInput = profileFormElement.querySelector(
 const profileDescriptionInput = profileFormElement.querySelector(
   "#profile__description-input"
 );
-const cardTitleInput = addCardFormElement.querySelector(
-  ".modal__input_type_title"
-);
-const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 // Function
-function resetForm() {
+function resetCardForm() {
   cardTitle.value = "";
   cardUrl.value = "";
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  resetForm();
+
+  if ((modal == addCardModal && cardTitle.value) || cardUrl.value) {
+    resetCardForm();
+  }
 }
 
 function openModal(modal) {
@@ -99,23 +98,23 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
+  closeModal(profileEditModal, false);
 }
 
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
+  const name = cardTitle.value;
+  const link = cardUrl.value;
   renderCard({ name, link }, cardListElement);
   e.target.reset();
-  closeModal(addCardModal);
+  closeModal(addCardModal, true);
 }
 
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImageElement = cardElement.querySelector(".card__image");
-  const cardTitleElement = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
+  const cardImageElement = cardElement.querySelector("#card__image");
+  const cardTitleElement = cardElement.querySelector("#card__title");
+  const likeButton = cardElement.querySelector("#card__like-button");
   const deleteButton = cardElement.querySelector("#card__delete-button");
 
   likeButton.addEventListener("click", () => {

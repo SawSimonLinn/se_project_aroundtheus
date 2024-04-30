@@ -57,7 +57,7 @@
   opacity: 0.6;
 }
 
-.profile__add-button {
+.profile__add-card-button {
   background: transparent url("../images/add-icon.svg") center no-repeat;
   width: 150px;
   height: 50px;
@@ -68,7 +68,7 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.profile__add-button:hover {
+.profile__add-card-button:hover {
   opacity: 0.6;
 }
 
@@ -100,7 +100,7 @@
     height: 20px;
   }
 
-  .profile__add-button {
+  .profile__add-card-button {
     max-width: 100px;
     margin-left: auto;
   }
@@ -139,7 +139,7 @@
     height: 18px;
   }
 
-  .profile__add-button {
+  .profile__add-card-button {
     width: 282px;
     margin: 36px 0 0;
   }
