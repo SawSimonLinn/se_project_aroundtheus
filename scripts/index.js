@@ -78,6 +78,7 @@ function resetCardForm() {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleKeyDown);
 
   if ((modal == addCardModal && cardTitle.value) || cardUrl.value) {
     resetCardForm();
@@ -98,7 +99,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal, false);
+  closeModal(profileEditModal);
 }
 
 function handleAddCardFormSubmit(e) {
@@ -107,7 +108,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrl.value;
   renderCard({ name, link }, cardListElement);
   e.target.reset();
-  closeModal(addCardModal, true);
+  closeModal(addCardModal);
 }
 
 function getCardElement(data) {
