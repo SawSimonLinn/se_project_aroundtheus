@@ -6,7 +6,7 @@
 
 ## Description
 
-The "Around the US" project is a web application showcasing various famous places across the United States. The home page features a curated selection of cards highlighting these iconic destinations, providing users with a glimpse into the diverse landscapes, landmarks, and attractions found throughout the country. Each card offers a brief overview of the location, accompanied by captivating imagery to inspire users to explore and discover the beauty of the United States.
+Discover America with "Around the US"! Customize your profile, add stunning photos and titles, then explore six unique layout cards showcasing the nation's beauty. Easily manage your content with delete and like options. Plus, enjoy a seamless experience on any device with our fully responsive website.
 
 ## Technologies and Techniques Used
 
@@ -16,6 +16,15 @@ The "Around the US" project is a web application showcasing various famous place
   . BEM
   . Flexbox
   . Grid
+- JavaScript
+  . Arrays and Objects
+  . DOM (Document Object Model)
+  . Event Handling
+  . Form Validation
+  . Debugging in JavaScript
+  . OOP (Object-Oriented Programming)
+- Git
+  . GitHub
 
 ## Screenshots
 
@@ -26,18 +35,6 @@ Resposive design
 
 [Link to Google Drive](https://drive.google.com/file/d/1CrEJpvGAuLGDMXcB7MrROz7abOmqNbjR/view?usp=drive_link)
 
-### Overview
-
-- Intro
-- Figma
-- Images
-
 **Figma**
 
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
-
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
