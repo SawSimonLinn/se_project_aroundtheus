@@ -79,7 +79,7 @@ function resetCardForm() {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  if (modal === addCardModal) {
+  if ((modal == addCardModal && cardTitleInput.value) || cardUrlInput.value) {
     resetCardForm();
   }
   document.removeEventListener("keydown", handleKeyDown);
