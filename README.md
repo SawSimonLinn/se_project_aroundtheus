@@ -29,6 +29,7 @@ Discover America with "Around the US"! Customize your profile, add stunning phot
 ## Screenshots
 
 ![Screenshot 1](./images/responsive_layout.gif)
+
 Resposive design
 
 ## Video Link
