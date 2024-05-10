@@ -7,18 +7,6 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-function enableValidation(options) {
-  const formElements = [...document.querySelectorAll(options.formSelector)];
-  formElements.forEach((formElement) => {
-    formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-
-    setEventListeners(formElement, options);
-  });
-}
-enableValidation(config);
-
 function showInputError(
   formElement,
   inputElement,
@@ -90,3 +78,15 @@ function setEventListeners(formElement, options) {
     });
   });
 }
+
+function enableValidation(options) {
+  const formElements = [...document.querySelectorAll(options.formSelector)];
+  formElements.forEach((formElement) => {
+    formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    setEventListeners(formElement, options);
+  });
+}
+enableValidation(config);
