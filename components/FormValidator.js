@@ -1,4 +1,4 @@
-export default class FormValidator {
+class FormValidator {
   constructor(config, formElement) {
     this._formSelector = config.formSelector;
     this._inputSelector = config.inputSelector;
@@ -6,7 +6,6 @@ export default class FormValidator {
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
-    this._modalSpan = config.modalSpan;
 
     this._formElement = formElement;
   }
@@ -25,14 +24,10 @@ export default class FormValidator {
     const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    const modalSpan = this._form.querySelector(this._modalSpan);
 
     inputElement.classList.remove(this._inputErrorClass);
     errorMessageElement.textContent = "";
     errorMessageElement.classList.remove(this._errorClass);
-
-    modalSpan.classList.remove(this._errorClass);
-    modalSpan.textContent = "";
   }
 
   _checkInputValidity(inputElement) {
@@ -65,7 +60,9 @@ export default class FormValidator {
   }
 
   _setEventListeners() {
-    this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
+    this._inputElements = [
+      ...this._formElement.querySelectorAll(this._inputSelector),
+    ];
     this._submitButton = this._formElement.querySelector(
       this._submitButtonSelector
     );
@@ -93,4 +90,4 @@ export default class FormValidator {
   }
 }
 
-// export default FormValidator;
+export default FormValidator;
