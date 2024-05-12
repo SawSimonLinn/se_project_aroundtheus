@@ -80,8 +80,8 @@ const previewImageTextElement =
 // * ||--------------------------------------------------------------------------------||
 
 function renderCard(data, cardListElement) {
-  const cardElement = getCardElement(data);
-  cardListElement.prepend(cardElement);
+  const card = new Card(initialCards[0], cardTemplate, handleImageClick);
+  cardListElement.prepend(card.getCardElement());
 }
 
 function handleImageClick(data) {
@@ -92,8 +92,10 @@ function handleImageClick(data) {
 }
 
 initialCards.forEach((data) => renderCard(data, cardListElement));
+
 const profileEditValidator = new FormValidator(config, profileFormElement);
 const addCardValidator = new FormValidator(config, addCardFormElement);
+
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();
 
@@ -170,34 +172,36 @@ modals.forEach((modal) => {
 // * ||                                 Comment                                        ||
 // * ||--------------------------------------------------------------------------------||
 
-// function getCardElement(data) {
+// function getCardElement() {
 //   const card = new Card(data, cardTemplate, handleImageClick);
 //   const cardElement = card.getView();
 //   return cardElement;
 // }
 
-function handleLikeIcon(e) {
-  e.target.classList.toggle("card__like-button_active");
-}
+// const card = new Card(initialCards[0], cardTemplate, handleImageClick);
 
-function handleDeleteCard(e) {
-  e.target.closest(".card__list-item").remove();
-}
+// function handleLikeIcon(e) {
+//   e.target.classList.toggle("card__like-button_active");
+// }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageElement = cardElement.querySelector("#card__image");
-  const cardTitleElement = cardElement.querySelector("#card__title");
-  const likeButton = cardElement.querySelector("#card__like-button");
-  const deleteButton = cardElement.querySelector("#card__delete-button");
+// function handleDeleteCard(e) {
+//   e.target.closest(".card__list-item").remove();
+// }
 
-  likeButton.addEventListener("click", handleLikeIcon);
-  deleteButton.addEventListener("click", handleDeleteCard);
-  cardImageElement.addEventListener("click", () => handleImageClick(data));
+// function getCardElement(data) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageElement = cardElement.querySelector("#card__image");
+//   const cardTitleElement = cardElement.querySelector("#card__title");
+//   const likeButton = cardElement.querySelector("#card__like-button");
+//   const deleteButton = cardElement.querySelector("#card__delete-button");
 
-  cardImageElement.src = data.link;
-  cardImageElement.alt = data.name;
-  cardTitleElement.textContent = data.name;
+//   likeButton.addEventListener("click", handleLikeIcon);
+//   deleteButton.addEventListener("click", handleDeleteCard);
+//   cardImageElement.addEventListener("click", () => handleImageClick(data));
 
-  return cardElement;
-}
+//   cardImageElement.src = data.link;
+//   cardImageElement.alt = data.name;
+//   cardTitleElement.textContent = data.name;
+
+//   return cardElement;
+// }
