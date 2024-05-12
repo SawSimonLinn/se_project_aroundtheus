@@ -46,6 +46,7 @@ const initialCards = [
 // Template
 const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
+
 const modals = document.querySelectorAll(".modal");
 const cardListElement = document.querySelector("#card__list");
 
@@ -79,9 +80,17 @@ const previewImageTextElement =
 // * ||                                   Functions                                    ||
 // * ||--------------------------------------------------------------------------------||
 
-function renderCard(data, cardListElement) {
-  const card = new Card(initialCards[0], cardTemplate, handleImageClick);
-  cardListElement.prepend(card.getCardElement());
+// const cardData = {
+//   name: "Yosemite Valley",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+// };
+
+// const card = new Card(cardData, cardTemplate, handleImageClick);
+// card.getView();
+
+function renderCard(cardData, cardListElement) {
+  const cardElement = getCardElement(cardData);
+  cardListElement.prepend(cardElement);
 }
 
 function handleImageClick(data) {
@@ -91,7 +100,7 @@ function handleImageClick(data) {
   openModal(previewImageModal);
 }
 
-initialCards.forEach((data) => renderCard(data, cardListElement));
+initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
 
 const profileEditValidator = new FormValidator(config, profileFormElement);
 const addCardValidator = new FormValidator(config, addCardFormElement);
@@ -172,36 +181,28 @@ modals.forEach((modal) => {
 // * ||                                 Comment                                        ||
 // * ||--------------------------------------------------------------------------------||
 
-// function getCardElement() {
-//   const card = new Card(data, cardTemplate, handleImageClick);
-//   const cardElement = card.getView();
-//   return cardElement;
-// }
+function handleLikeIcon(e) {
+  e.target.classList.toggle("card__like-button_active");
+}
 
-// const card = new Card(initialCards[0], cardTemplate, handleImageClick);
+function handleDeleteCard(e) {
+  e.target.closest(".card__list-item").remove();
+}
 
-// function handleLikeIcon(e) {
-//   e.target.classList.toggle("card__like-button_active");
-// }
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageElement = cardElement.querySelector("#card__image");
+  const cardTitleElement = cardElement.querySelector("#card__title");
+  const likeButton = cardElement.querySelector("#card__like-button");
+  const deleteButton = cardElement.querySelector("#card__delete-button");
 
-// function handleDeleteCard(e) {
-//   e.target.closest(".card__list-item").remove();
-// }
+  likeButton.addEventListener("click", handleLikeIcon);
+  deleteButton.addEventListener("click", handleDeleteCard);
+  cardImageElement.addEventListener("click", () => handleImageClick(data));
 
-// function getCardElement(data) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageElement = cardElement.querySelector("#card__image");
-//   const cardTitleElement = cardElement.querySelector("#card__title");
-//   const likeButton = cardElement.querySelector("#card__like-button");
-//   const deleteButton = cardElement.querySelector("#card__delete-button");
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+  cardTitleElement.textContent = data.name;
 
-//   likeButton.addEventListener("click", handleLikeIcon);
-//   deleteButton.addEventListener("click", handleDeleteCard);
-//   cardImageElement.addEventListener("click", () => handleImageClick(data));
-
-//   cardImageElement.src = data.link;
-//   cardImageElement.alt = data.name;
-//   cardTitleElement.textContent = data.name;
-
-//   return cardElement;
-// }
+  return cardElement;
+}
