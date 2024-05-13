@@ -34,18 +34,11 @@ class Card {
       .content.querySelector(".card__list-item")
       .cloneNode(true);
 
+      console.log(this._cardElement);
+
     this._cardImageElement = this._cardElement.querySelector("#card__image");
-    this._cardTitleElement = cardElement.querySelector("#card__title");
+    this._cardTitleElement = this._cardElement.querySelector("#card__title");
     this._likeButton = this._cardElement.querySelector("#card__like-button");
-    this._deleteButton = this._cardElement.querySelector(
-      "#card__delete-button"
-    );
-
-    this._cardTitleElementcardImageElement.src = this._link;
-    this._cardTitleElementcardImageElement.alt = this._name;
-    this._cardTitleElementcardTitleElement.textContent = this._name;
-
-    this._setEventListeners();
   }
 }
 
