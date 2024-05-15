@@ -43,10 +43,7 @@ const initialCards = [
 // * ||                                   Elements                                     ||
 // * ||--------------------------------------------------------------------------------||
 
-// Template
-const cardTemplate = document
-  .querySelector("#card__template")
-  .content.querySelector(".card__list-item");
+// Modals
 const modals = document.querySelectorAll(".modal");
 
 //Profile
@@ -130,6 +127,7 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListElement);
   e.target.reset();
+  submitButton.disabled = true;
   closeModal(addCardModal);
 }
 
