@@ -90,7 +90,10 @@ function renderCard(cardData, cardListElement) {
 }
 
 function handleImageClick(cardData) {
-  openModal(previewImageModal(cardData));
+  previewImageElement.src = cardData.link;
+  previewImageElement.alt = cardData.name;
+  previewImageTextElement.textContent = cardData.name;
+  openModal(previewImageModal);
 }
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
