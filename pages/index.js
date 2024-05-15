@@ -39,16 +39,14 @@ const initialCards = [
   },
 ];
 
-// ! ||--------------------------------------------------------------------------------||
-// ! ||                                   Elements                                     ||
-// ! ||--------------------------------------------------------------------------------||
+// * ||--------------------------------------------------------------------------------||
+// * ||                                   Elements                                     ||
+// * ||--------------------------------------------------------------------------------||
 
 // Template
 const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
-
 const modals = document.querySelectorAll(".modal");
-const cardListElement = document.querySelector("#card__list");
 
 //Profile
 const profileEditModal = document.querySelector("#profile__edit-modal");
@@ -70,6 +68,9 @@ const cardTitleInput = addCardFormElement.querySelector("#card__title-input");
 const cardUrlInput = addCardFormElement.querySelector("#card__url-input");
 const addNewCardButton = document.querySelector("#profile__add-card-button");
 
+const cardSection = document.querySelector(".card");
+const cardListElement = cardSection.querySelector("#card__list");
+
 //Image
 const previewImageModal = document.querySelector("#image-modal");
 const previewImageElement = previewImageModal.querySelector(".modal__image");
@@ -80,18 +81,21 @@ const previewImageTextElement =
 // * ||                                   Functions                                    ||
 // * ||--------------------------------------------------------------------------------||
 
-function getCardElement(cardData, cardListElement) {
-  const card = new Card(cardData, cardTemplate, handleImageClick);
-  cardListElement.prepend(card.getView());
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card__template", handleImageClick);
+card.getCardElement();
+
+// Render Card
+function renderCard(cardData, cardListElement) {
+  const cardElement = getCardElement(cardData);
+  // const card = new Card(cardData, "#card__template", handleImageClick);
+  // const cardElement = card.getCardElement();
+  cardListElement.prepend(cardElement);
 }
-
-
-// function renderCard(cardData, cardListElement) {
-//   // const cardElement = getCardElement(cardData);
-//   const card = new Card({ name: 'Card Name', link: 'Card Link' }, '.cardSelector', handleImageClick);
-//   const cardElement = card.getView();
-//   cardListElement.prepend(cardElement);
-// }
 
 function handleImageClick(data) {
   previewImageElement.src = data.link;
@@ -100,7 +104,7 @@ function handleImageClick(data) {
   openModal(previewImageModal);
 }
 
-initialCards.forEach((cardData) => getCardElement(cardData, cardListElement));
+initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
 
 const profileEditValidator = new FormValidator(config, profileFormElement);
 const addCardValidator = new FormValidator(config, addCardFormElement);
@@ -154,7 +158,6 @@ const handleKeyDown = (e) => {
   }
 };
 
-
 // ? ||--------------------------------------------------------------------------------||
 // ? ||                                 Form Listener                                  ||
 // ? ||--------------------------------------------------------------------------------||
@@ -178,32 +181,33 @@ modals.forEach((modal) => {
   });
 });
 
-// * ||--------------------------------------------------------------------------------||
-// * ||                                 Comment                                        ||
-// * ||--------------------------------------------------------------------------------||
+console.log();
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                 Comment                                        ||
+// ! ||--------------------------------------------------------------------------------||
 
-// function handleLikeIcon(e) {
-//   e.target.classList.toggle("card__like-button_active");
-// }
+function handleLikeIcon(e) {
+  e.target.classList.toggle("card__like-button_active");
+}
 
-// function handleDeleteCard(e) {
-//   e.target.closest(".card__list-item").remove();
-// }
+function handleDeleteCard(e) {
+  e.target.closest(".card__list-item").remove();
+}
 
-// function getCardElement(data) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageElement = cardElement.querySelector("#card__image");
-//   const cardTitleElement = cardElement.querySelector("#card__title");
-//   const likeButton = cardElement.querySelector("#card__like-button");
-//   const deleteButton = cardElement.querySelector("#card__delete-button");
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageElement = cardElement.querySelector("#card__image");
+  const cardTitleElement = cardElement.querySelector("#card__title");
+  const likeButton = cardElement.querySelector("#card__like-button");
+  const deleteButton = cardElement.querySelector("#card__delete-button");
 
-//   likeButton.addEventListener("click", handleLikeIcon);
-//   deleteButton.addEventListener("click", handleDeleteCard);
-//   cardImageElement.addEventListener("click", () => handleImageClick(data));
+  likeButton.addEventListener("click", handleLikeIcon);
+  deleteButton.addEventListener("click", handleDeleteCard);
+  cardImageElement.addEventListener("click", () => handleImageClick(data));
 
-//   cardImageElement.src = data.link;
-//   cardImageElement.alt = data.name;
-//   cardTitleElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+  cardTitleElement.textContent = data.name;
 
-//   return cardElement;
-// }
+  return cardElement;
+}
