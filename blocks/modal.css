@@ -140,6 +140,7 @@
 @media screen and (max-width: 580px) {
   .modal__container {
     width: 282px;
+
     padding: 25px 22px;
   }
 
@@ -155,17 +156,18 @@
     font-weight: 900;
     font-size: 18px;
     line-height: 22px;
-    margin: 0 0 75px 0;
+    margin: 0 0 90px 0;
   }
 
   .modal__button {
-    margin: 32px 0 0;
-    padding: 14px 100px;
+    margin: 25px 0 0;
+    padding: 19px 100px;
     font-size: 14px;
     line-height: 17px;
   }
 
   .modal__input {
     width: 277px;
+    margin: 0 0 30px;
   }
 }

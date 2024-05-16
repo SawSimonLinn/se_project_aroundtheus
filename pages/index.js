@@ -115,18 +115,13 @@ const enableValidation = (config) => {
 
 enableValidation(config);
 
-// Reset Validation
-formValidators[profileFormElement.getAttribute("name")].resetValidation();
-formValidators[addCardFormElement.getAttribute("name")].resetValidation();
-
 // ? ||--------------------------------------------------------------------------------||
 // ? ||                                 Event Handlers                                 ||
 // ? ||--------------------------------------------------------------------------------||
 
 // Fill Profile Form
 function fillProfileForm() {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  formValidators[profileFormElement.getAttribute("name")].resetValidation();
   openModal(profileEditModal);
 }
 
@@ -143,12 +138,10 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const submitButton = e.target.querySelector(".modal__button");
 
   renderCard({ name, link }, cardListElement);
   e.target.reset();
-  submitButton.classList.add("modal__button_disabled");
-  submitButton.disabled = true;
+  formValidators[addCardFormElement.getAttribute("name")].disableButton();
   closeModal(addCardModal);
 }
 

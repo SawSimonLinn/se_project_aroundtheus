@@ -37,7 +37,7 @@ class FormValidator {
     this._hideInputError(inputElement);
   }
 
-  _disableButton() {
+  disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
   }
@@ -53,7 +53,7 @@ class FormValidator {
 
   _toggleButtonState() {
     if (this._hasInvalidInput(this._inputElements)) {
-      this._disableButton();
+      this.disableButton();
       return;
     }
     this._enableButton();
