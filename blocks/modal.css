@@ -101,12 +101,11 @@
 }
 
 .modal__input {
-  /* margin-top: 13px; */
   font-size: 14px;
   line-height: 17px;
-  width: 100%;
+  width: 425px;
   margin: 0 0 39px;
-  padding: 10px 5px;
+  padding: 10px 0 10px 5px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -164,5 +163,9 @@
     padding: 14px 100px;
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .modal__input {
+    width: 277px;
   }
 }

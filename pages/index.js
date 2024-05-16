@@ -79,11 +79,16 @@ const previewImageTextElement =
 // * ||                                   Functions                                    ||
 // * ||--------------------------------------------------------------------------------||
 
-// Render Card
-function renderCard(cardData, cardListElement) {
+// Create Card
+function createCard(cardData) {
   const card = new Card(cardData, "#card__template", handleImageClick);
-  const cardElement = card.getCardElement();
-  cardListElement.prepend(cardElement);
+  return card.getCardElement();
+}
+
+// Render Card
+function renderCard(cardData, cardListElement, method = "prepend") {
+  const cardElement = createCard(cardData);
+  cardListElement[method](cardElement);
 }
 
 function handleImageClick(cardData) {
@@ -95,11 +100,24 @@ function handleImageClick(cardData) {
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
 
-const profileEditValidator = new FormValidator(config, profileFormElement);
-const addCardValidator = new FormValidator(config, addCardFormElement);
+const formValidators = {};
 
-profileEditValidator.enableValidation();
-addCardValidator.enableValidation();
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);
+
+// Reset Validation
+formValidators[profileFormElement.getAttribute("name")].resetValidation();
+formValidators[addCardFormElement.getAttribute("name")].resetValidation();
 
 // ? ||--------------------------------------------------------------------------------||
 // ? ||                                 Event Handlers                                 ||
@@ -125,8 +143,11 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  const submitButton = e.target.querySelector(".modal__button");
+
   renderCard({ name, link }, cardListElement);
   e.target.reset();
+  submitButton.classList.add("modal__button_disabled");
   submitButton.disabled = true;
   closeModal(addCardModal);
 }
@@ -156,10 +177,11 @@ const handleKeyDown = (e) => {
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
-// Modal Close Listener
+// Modal Listeners
 profileEditButton.addEventListener("click", fillProfileForm);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
+// Modal Close Listeners
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("modal_opened")) {
