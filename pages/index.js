@@ -122,6 +122,8 @@ enableValidation(config);
 // Fill Profile Form
 function fillProfileForm() {
   formValidators[profileFormElement.getAttribute("name")].resetValidation();
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   openModal(profileEditModal);
 }
 
