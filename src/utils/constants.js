@@ -1,3 +1,14 @@
+// Config
+export const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+  modalSpan: ".modal__span",
+};
+
 // Initial Cards
 export const initialCards = [
   {
@@ -26,12 +37,14 @@ export const initialCards = [
   },
 ];
 
+// Form Selectors
 export const formList = document.querySelectorAll(".modal__form");
+
+// Profile Selectors
 export const profileEditModal = document.querySelector("#profile__edit-modal");
 export const profileEditButton = document.querySelector(
   "#profile__edit-button"
 );
-
 export const profileTitleInput = document.querySelector(
   "#profile__title-input"
 );
@@ -39,22 +52,12 @@ export const profileDescriptionInput = document.querySelector(
   "#profile__description-input"
 );
 
+// Card Selectors
 export const addCardModal = document.querySelector("#add-card-modal");
-export const addNewCardButton = document.querySelector(
+export const addCardButton = document.querySelector(
   "#profile__add-card-button"
 );
 
+// Input Selectors
 export const nameInput = document.querySelector("[name='name']");
 export const aboutInput = document.querySelector("[name='about']");
-
-// ? ||--------------------------------------------------------------------------------||
-
-export const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-  modalSpan: ".modal__span",
-};

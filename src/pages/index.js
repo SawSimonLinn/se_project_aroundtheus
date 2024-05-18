@@ -1,24 +1,27 @@
 import "../pages/index.css";
+
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
+
 import {
   initialCards,
   formList,
   profileEditButton,
-  profileTitleInput,
-  profileDescriptionInput,
-  addNewCardButton,
+  addCardButton,
   nameInput,
   aboutInput,
   config,
 } from "../utils/constants.js";
 
 // ? ||--------------------------------------------------------------------------------||
+// ? ||---------------------------------- Instances -----------------------------------||
+// ? ||--------------------------------------------------------------------------------||
 
+// cardSection is an instance of the Section class
 const cardSection = new Section(
   {
     items: initialCards,
@@ -29,32 +32,36 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-// ? ||--------------------------------------------------------------------------------||
-
-const proileModal = new PopupWithForm(
+// modal instances
+const proileEditModal = new PopupWithForm(
   "#profile__edit-modal",
   handleProfileFormSubmit
 );
-proileModal.setEventListeners();
+proileEditModal.setEventListeners();
 
-const cardModal = new PopupWithForm("#add-card-modal", handleAddCardFormSubmit);
-cardModal.setEventListeners();
+const addCardModal = new PopupWithForm(
+  "#add-card-modal",
+  handleAddCardFormSubmit
+);
+addCardModal.setEventListeners();
 
-const imageModal = new PopupWithImage("#preview__image-modal");
-imageModal.setEventListeners();
+const previewImageModal = new PopupWithImage("#preview__image-modal");
+previewImageModal.setEventListeners();
 
-// ? ||--------------------------------------------------------------------------------||
-
+// userInfo instance
 const userInfo = new UserInfo({
   nameElement: "#profile__title",
   aboutElement: ".profile__description",
 });
 
-// ? ||--------------------------------------------------------------------------------||
+// * ||--------------------------------------------------------------------------------||
+// * ||----------------------------------Function--------------------------------------||
+// * ||--------------------------------------------------------------------------------||
 
+// function to create a card
 function createCard(cardData) {
   const card = new Card(cardData, "#card__template", () => {
-    imageModal.open(cardData);
+    previewImageModal.open(cardData);
   });
   return card.getCardElement();
 }
@@ -64,41 +71,51 @@ function renderCard(item) {
   cardSection.addItem(cardElement);
 }
 
-// ? ||--------------------------------------------------------------------------------||
+// * ||--------------------------------------------------------------------------------||
+// * ||-------------------------------Event Listeners----------------------------------||
+// * ||--------------------------------------------------------------------------------||
 
+// event listeners
 profileEditButton.addEventListener("click", () => {
   const currentUser = userInfo.getUserInfo();
-  nameInput.value = currentUser.name.trim();
-  aboutInput.value = currentUser.about.trim();
-  proileModal.open();
+  nameInput.value = currentUser.name;
+  aboutInput.value = currentUser.about;
+  proileEditModal.open();
 });
 
-addNewCardButton.addEventListener("click", () => {
-  cardModal.open();
+addCardButton.addEventListener("click", () => {
+  addCardModal.open();
 });
 
-// ? ||--------------------------------------------------------------------------------||
+// * ||--------------------------------------------------------------------------------||
+// * ||-------------------------------Event Handlers-----------------------------------||
+// * ||--------------------------------------------------------------------------------||
 
+// profile form submit handlers
 function handleProfileFormSubmit(inputValues) {
   userInfo.setUserInfo({
     name: inputValues.name,
     about: inputValues.about,
   });
 
-  proileModal.close();
+  proileEditModal.close();
 }
 
+// card form submit handlers
 function handleAddCardFormSubmit(inputValues) {
   const name = inputValues.value;
   const link = inputValues.value;
   const cardData = { name, link };
   cardSection.addItem(createCard(cardData));
   formValidators["card-form"].disableButton();
-  cardModal.close();
+  addCardModal.close();
 }
 
 // ? ||--------------------------------------------------------------------------------||
+// ? ||-------------------------------Form Validation----------------------------------||
+// ? ||--------------------------------------------------------------------------------||
 
+// form validation
 const formValidators = {};
 const enableValidation = (formList) => {
   formList.forEach((formElement) => {
