@@ -21,17 +21,6 @@ import {
 // ? ||---------------------------------- Instances -----------------------------------||
 // ? ||--------------------------------------------------------------------------------||
 
-// cardSection is an instance of the Section class
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  "#card__list"
-);
-
-cardSection.renderItems();
-
 // modal instances
 const proileEditModal = new PopupWithForm(
   "#profile__edit-modal",
@@ -53,6 +42,17 @@ const userInfo = new UserInfo({
   nameElement: "#profile__title",
   aboutElement: ".profile__description",
 });
+
+// cardSection is an instance of the Section class
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  "#card__list"
+);
+
+cardSection.renderItems();
 
 // * ||--------------------------------------------------------------------------------||
 // * ||----------------------------------Function--------------------------------------||
@@ -103,15 +103,15 @@ function handleProfileFormSubmit(inputValues) {
 
 // card form submit handlers
 function handleAddCardFormSubmit(inputValues) {
-  const name = inputValues.value;
-  const link = inputValues.value;
+  const name = inputValues.name;
+  const link = inputValues.link;
   const cardData = { name, link };
   cardSection.addItem(createCard(cardData));
   addCardModal.close();
 
   formValidators["card-form"].disableButton();
-  formValidators["card-form"].resetValidation();
 }
+
 
 // ? ||--------------------------------------------------------------------------------||
 // ? ||-------------------------------Form Validation----------------------------------||
