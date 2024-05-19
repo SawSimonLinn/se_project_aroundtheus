@@ -85,6 +85,7 @@ profileEditButton.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
+  formValidators["card-form"].resetValidation();
 });
 
 // * ||--------------------------------------------------------------------------------||
@@ -107,7 +108,7 @@ function handleAddCardFormSubmit(inputValues) {
   const link = inputValues.value;
   const cardData = { name, link };
   cardSection.addItem(createCard(cardData));
-  formValidators["card-form"].disableButton();
+  // formValidators["card-form"].resetValidation();
   addCardModal.close();
 }
 
@@ -121,8 +122,8 @@ const enableValidation = (formList) => {
   formList.forEach((formElement) => {
     const validator = new FormValidator(config, formElement);
     validator.enableValidation();
-    validator[formElement.getAttribute("name")] = validator;
-    return validator;
+    formValidators[formElement.getAttribute("name")] = validator;
+    return formValidators;
   });
 };
 
