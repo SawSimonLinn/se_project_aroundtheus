@@ -6,7 +6,7 @@
 
 ## Description
 
-Discover America with "Around the US"! Customize your profile, add stunning photos and titles, then explore six unique layout cards showcasing the nation's beauty. Easily manage your content with delete and like options. Plus, enjoy a seamless experience on any device with our fully responsive website.
+A responsive web app that allows users to post their favorite pictures of locations that they've been to, like the pictures they have added, and change their profile information. The technologies I used to build this were Vanilla JS with emphasis on OOP, and a RESTful API that allows the data to be persistent.
 
 ## Technologies and Techniques Used
 
