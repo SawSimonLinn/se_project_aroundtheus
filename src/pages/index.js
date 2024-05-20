@@ -109,6 +109,7 @@ function handleAddCardFormSubmit(inputValues) {
   cardSection.addItem(createCard(cardData));
   addCardModal.close();
 
+  formValidators["card-form"].resetValidation();
   formValidators["card-form"].disableButton();
 }
 

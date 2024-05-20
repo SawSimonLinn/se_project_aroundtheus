@@ -24,15 +24,8 @@ class PopupWithForm extends Popup {
     });
   }
 
-  open() {
-    super.open();
-    this._form.addEventListener("submit", this._handleFormSubmit);
-  }
-
   close() {
     super.close();
-    this._form.removeEventListener("submit", this._handleFormSubmit);
-    this._form.reset();
   }
 }
 
