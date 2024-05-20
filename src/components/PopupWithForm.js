@@ -35,7 +35,6 @@ class PopupWithForm extends Popup {
     super.close();
     if (this.formType === "card-form") {
       this._form.reset();
-      console.log("form reset");
     }
   }
 }
