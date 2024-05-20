@@ -30,7 +30,8 @@ proileEditModal.setEventListeners();
 
 const addCardModal = new PopupWithForm(
   "#add-card-modal",
-  handleAddCardFormSubmit
+  handleAddCardFormSubmit,
+  "card-form"
 );
 addCardModal.setEventListeners();
 
