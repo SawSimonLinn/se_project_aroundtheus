@@ -1,12 +1,11 @@
 import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
-  constructor(popupSelector, handleFormSubmit, formType) {
+  constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
     this._form = this.popupElement.querySelector(".modal__form");
     this._inputList = this._form.querySelectorAll(".modal__input");
     this._handleFormSubmit = handleFormSubmit;
-    this.formType = formType;
   }
 
   _getInputValues() {
@@ -33,9 +32,7 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    if (this.formType === "card-form") {
-      this._form.reset();
-    }
+    this._form.reset();
   }
 }
 
