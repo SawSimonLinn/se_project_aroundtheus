@@ -111,6 +111,7 @@ function handleAddCardFormSubmit(inputValues) {
   addCardModal.close();
 
   formValidators["card-form"].disableButton();
+  addCardModal.reset();
 }
 
 // ? ||--------------------------------------------------------------------------------||
