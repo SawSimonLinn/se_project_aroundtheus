@@ -1,5 +1,6 @@
 import "../pages/index.css";
 
+import Api from "../components/Api.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -8,7 +9,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 
 import {
-  initialCards,
+  // initialCards,
   formList,
   profileEditButton,
   addCardButton,
@@ -20,6 +21,11 @@ import {
 // ? ||--------------------------------------------------------------------------------||
 // ? ||---------------------------------- Instances -----------------------------------||
 // ? ||--------------------------------------------------------------------------------||
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  authToken: "1abbe3bb-ec4a-49b1-8cc7-97fb0e8300a6",
+});
 
 // modal instances
 const proileEditModal = new PopupWithForm(
@@ -44,32 +50,35 @@ const userInfo = new UserInfo({
 });
 
 // cardSection is an instance of the Section class
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  "#card__list"
-);
+api.getInitialCards().then((cardData) => {
+  const cardSection = new Section(
+    {
+      items: cardData,
+      renderer: renderCard,
+    },
+    "#card__list"
+  );
 
-cardSection.renderItems();
+  cardSection.renderItems();
+
+  function createCard(cardData) {
+    const card = new Card(cardData, "#card__template", () => {
+      previewImageModal.open(cardData);
+    });
+    return card.getCardElement();
+  }
+
+  function renderCard(item) {
+    const cardElement = createCard(item);
+    cardSection.addItem(cardElement);
+  }
+});
 
 // * ||--------------------------------------------------------------------------------||
 // * ||----------------------------------Function--------------------------------------||
 // * ||--------------------------------------------------------------------------------||
 
 // function to create a card
-function createCard(cardData) {
-  const card = new Card(cardData, "#card__template", () => {
-    previewImageModal.open(cardData);
-  });
-  return card.getCardElement();
-}
-
-function renderCard(item) {
-  const cardElement = createCard(item);
-  cardSection.addItem(cardElement);
-}
 
 // * ||--------------------------------------------------------------------------------||
 // * ||-------------------------------Event Listeners----------------------------------||
