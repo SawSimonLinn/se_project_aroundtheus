@@ -9,7 +9,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 
 import {
-  // initialCards,
   formList,
   profileEditButton,
   addCardButton,
@@ -47,6 +46,13 @@ previewImageModal.setEventListeners();
 const userInfo = new UserInfo({
   nameElement: "#profile__title",
   aboutElement: ".profile__description",
+});
+
+api.getUserInfo().then((userData) => {
+  userInfo.setUserInfo({
+    name: userData.name,
+    about: userData.about,
+  });
 });
 
 // cardSection is an instance of the Section class

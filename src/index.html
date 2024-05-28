@@ -47,7 +47,7 @@
         <p class="footer__text">&copy; 2022 Around The U.S.</p>
       </footer>
 
-      <!-- Edit Modal -->
+      <!-- Profile Edit Modal -->
       <div class="modal" id="profile__edit-modal">
         <div class="modal__container">
           <button
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <!-- Add card modal -->
+      <!-- Add Card Modal -->
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button
@@ -147,6 +147,8 @@
           </form>
         </div>
       </div>
+
+      <!-- Preview Image Modal -->
       <div class="modal" id="preview__image-modal">
         <div class="modal__content modal__content_type_preview">
           <button
@@ -156,6 +158,19 @@
           ></button>
           <img class="modal__image" />
           <p class="modal__caption"></p>
+        </div>
+      </div>
+
+      <!-- Delete Card Modal -->
+      <div class="modal" id="delete__modal">
+        <div class="modal__container">
+          <button
+            type="button"
+            class="modal__close-button"
+            id="modal__close-button"
+          ></button>
+          <h3 class="modal__heading">Are you sure?</h3>
+          <button type="submit" class="modal__button">Save</button>
         </div>
       </div>
     </div>
