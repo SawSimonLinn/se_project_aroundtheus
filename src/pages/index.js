@@ -23,7 +23,10 @@ import {
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  authToken: "1abbe3bb-ec4a-49b1-8cc7-97fb0e8300a6",
+  headers: {
+    authorization: "1abbe3bb-ec4a-49b1-8cc7-97fb0e8300a6",
+    "Content-Type": "application/json",
+  },
 });
 
 // modal instances
@@ -48,6 +51,12 @@ const userInfo = new UserInfo({
   aboutElement: ".profile__description",
 });
 
+// ? ||--------------------------------------------------------------------------------||
+// ? ||----------------------------------- API ----------------------------------------||
+// ? ||--------------------------------------------------------------------------------||
+
+let cardSection;
+
 api.getUserInfo().then((userData) => {
   userInfo.setUserInfo({
     name: userData.name,
@@ -57,7 +66,7 @@ api.getUserInfo().then((userData) => {
 
 // cardSection is an instance of the Section class
 api.getInitialCards().then((cardData) => {
-  const cardSection = new Section(
+  cardSection = new Section(
     {
       items: cardData,
       renderer: renderCard,
@@ -66,19 +75,38 @@ api.getInitialCards().then((cardData) => {
   );
 
   cardSection.renderItems();
-
-  function createCard(cardData) {
-    const card = new Card(cardData, "#card__template", () => {
-      previewImageModal.open(cardData);
-    });
-    return card.getCardElement();
-  }
-
-  function renderCard(item) {
-    const cardElement = createCard(item);
-    cardSection.addItem(cardElement);
-  }
 });
+
+// function createCard(cardData) {
+//   const card = new Card(
+//     cardData,
+//     "#card-template",
+//     handleImageClick,
+//     handleDeleteClick
+//   );
+//   return card.getCardElement();
+// }
+
+// function handleImageClick(cardData) {
+//   previewImageModal.open(cardData);
+// }
+
+function createCard(cardData) {
+  const card = new Card(
+    cardData,
+    "#card__template",
+    () => {
+      previewImageModal.open(cardData);
+    },
+    handleDeleteClick
+  );
+  return card.getCardElement();
+}
+
+function renderCard(item) {
+  const cardElement = createCard(item);
+  cardSection.addItem(cardElement);
+}
 
 // * ||--------------------------------------------------------------------------------||
 // * ||----------------------------------Function--------------------------------------||
@@ -119,6 +147,7 @@ function handleProfileFormSubmit(inputValues) {
 
 // card form submit handlers
 function handleAddCardFormSubmit(inputValues) {
+  api.addCard(inputValues).then((res) => console.log(res));
   const name = inputValues.name;
   const link = inputValues.link;
   const cardData = { name, link };
@@ -127,6 +156,23 @@ function handleAddCardFormSubmit(inputValues) {
 
   formValidators["card-form"].disableButton();
   addCardModal.reset();
+}
+
+// api.removeCard("66555c688bacc8001af35838").then((res) => console.log(res));
+
+function handleDeleteClick(card) {
+  console.log(card);
+  const id = card.getID();
+
+  api
+    .removeCard(id)
+    .then(() => {
+      card.handleDeleteCard();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to delete card.`);
+    });
 }
 
 // ? ||--------------------------------------------------------------------------------||

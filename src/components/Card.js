@@ -1,17 +1,23 @@
 class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
-    this._name = name;
-    this._link = link;
+  constructor(cardData, cardSelector, handleImageClick, handleDeleteClick) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._id = cardData.id;
 
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+  }
+
+  // Get id
+  getID() {
+    return this._id;
   }
 
   // Get the card template
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card__list-item")
+      .querySelector(this._cardSelector).content.querySelector(".card__list-item")
       .cloneNode(true);
 
     return cardElement;
@@ -21,7 +27,7 @@ class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => this._handleLikeIcon());
     this._deleteButton.addEventListener("click", () =>
-      this._handleDeleteCard()
+      this._handleDeleteClick(this)
     );
     this._cardImageElement.addEventListener("click", () => {
       this._handleImageClick({
@@ -37,7 +43,7 @@ class Card {
   }
 
   // Delete card
-  _handleDeleteCard() {
+  handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }
