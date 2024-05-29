@@ -16,12 +16,21 @@
       </header>
       <main class="content" id="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau avatar"
-            class="profile__image"
-            id="profile__image"
-          />
+          <div class="profile__container">
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="Jacques Cousteau avatar"
+              class="profile__image"
+              id="profile__image"
+              draggable="false"
+            />
+            <button
+              type="button"
+              aria-label="Edit"
+              class="profile__edit-icon"
+              id="profile__edit-icon"
+            ></button>
+          </div>
           <div class="profile__info" id="profile__info">
             <h1 class="profile__title" id="profile__title">Jacques Cousteau</h1>
             <button
@@ -163,14 +172,49 @@
 
       <!-- Delete Card Modal -->
       <div class="modal" id="delete__modal">
+        <div class="modal__container modal__delete-container">
+          <button
+            type="button"
+            class="modal__close-button"
+            id="modal__close-button"
+          ></button>
+          <form class="modal__form">
+            <h3 class="modal__heading modal__delete-heading">Are you sure?</h3>
+            <button type="submit" class="modal__button modal__delete-button">
+              Yes
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Profile-image Modal -->
+      <div class="modal" id="profile-image-modal">
         <div class="modal__container">
           <button
             type="button"
             class="modal__close-button"
             id="modal__close-button"
           ></button>
-          <h3 class="modal__heading">Are you sure?</h3>
-          <button type="submit" class="modal__button">Save</button>
+          <form class="modal__form">
+            <h3 class="modal__heading modal__delete-heading">
+              Change profile Picture
+            </h3>
+            <label class="modal__error-wrapper">
+              <input
+                type="url"
+                name="link"
+                class="modal__input modal__input_type_url"
+                id="card__url-input"
+                placeholder="Image URL"
+                required
+              />
+              <span
+                class="modal__span modal__error_visible"
+                id="card__url-input-error"
+              ></span>
+            </label>
+            <button type="submit" class="modal__button">Save</button>
+          </form>
         </div>
       </div>
     </div>

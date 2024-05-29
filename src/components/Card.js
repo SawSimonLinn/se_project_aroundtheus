@@ -1,23 +1,31 @@
 class Card {
-  constructor(cardData, cardSelector, handleImageClick, handleDeleteClick) {
+  constructor(
+    cardData,
+    cardSelector,
+    handleCardImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData.id;
+    this.isLiked = cardData.isLiked;
 
     this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
+    this._handleCardImageClick = handleCardImageClick;
     this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
 
-  // Get id
-  getID() {
-    return this._id;
+  getId() {
+    console.log("hi Simon");
   }
 
   // Get the card template
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._cardSelector).content.querySelector(".card__list-item")
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card__list-item")
       .cloneNode(true);
 
     return cardElement;
@@ -25,12 +33,12 @@ class Card {
 
   // Set event listeners
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
+    this._likeButton.addEventListener("click", () => this._handleLikeClick());
     this._deleteButton.addEventListener("click", () =>
       this._handleDeleteClick(this)
     );
     this._cardImageElement.addEventListener("click", () => {
-      this._handleImageClick({
+      this._handleCardImageClick({
         name: this._name,
         link: this._link,
       });
@@ -38,7 +46,7 @@ class Card {
   }
 
   // Like card
-  _handleLikeIcon() {
+  _handleLikeClick() {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
@@ -46,6 +54,15 @@ class Card {
   handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  setIsLiked() {
+    this.isLiked = !this.isLiked;
+    if (this.isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
   }
 
   getCardElement() {

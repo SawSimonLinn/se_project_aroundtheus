@@ -40,20 +40,12 @@ export const initialCards = [
 // Form Selectors
 export const formList = document.querySelectorAll(".modal__form");
 
-// Profile Selectors
-export const profileEditModal = document.querySelector("#profile__edit-modal");
 export const profileEditButton = document.querySelector(
   "#profile__edit-button"
 );
-export const profileTitleInput = document.querySelector(
-  "#profile__title-input"
-);
-export const profileDescriptionInput = document.querySelector(
-  "#profile__description-input"
-);
+export const profileEditIcon = document.querySelector(".profile__container");
 
 // Card Selectors
-export const addCardModal = document.querySelector("#add-card-modal");
 export const addCardButton = document.querySelector(
   "#profile__add-card-button"
 );

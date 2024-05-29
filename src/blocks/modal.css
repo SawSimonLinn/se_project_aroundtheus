@@ -137,7 +137,18 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
-.card__delete-button {
+.modal__delete-container {
+  max-width: 358px;
+  max-height: 109px;
+}
+
+.modal__delete-button {
+  margin: 0;
+  padding: 13px 125px;
+}
+
+.modal__delete-heading {
+  margin-bottom: 38px;
 }
 
 @media screen and (max-width: 580px) {
@@ -172,5 +183,14 @@
   .modal__input {
     max-width: 233px;
     margin: 0 0 20px;
+  }
+
+  .modal__delete-button {
+    margin: 0;
+    padding: 13px 105px;
+  }
+
+  .modal__delete-heading {
+    margin-bottom: 38px;
   }
 }
