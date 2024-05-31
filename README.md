@@ -32,7 +32,7 @@
 
 ## Screenshots
 
-![Home Page](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png | width=100)
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png "Hompage")
 ![Edit Profile](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png | width=100)
 ![Add Card](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png | width=100)
 ![Create Profile Picture](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.54 AM.png | width=100)
