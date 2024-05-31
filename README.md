@@ -32,14 +32,14 @@
 
 ## Screenshots
 
-![Home Page](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png | width=100)
-![Edit Profile](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png | width=100)
-![Add Card](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png | width=100)
-![Create Profile Picture](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.54 AM.png | width=100)
-![Popup Image with Caption](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.00 AM.png | width=100)
-![Edit Profile with Form validation](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.20 AM.png | width=100)
-![Add Card invalid URL and disable Button](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.42 AM.png | width=100)
-![Delete Comfirmation Popup](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.59 AM.png | width=100)
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png "Hompage")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png "Edit Profile")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png "Add Card")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.54 AM.png "Create Profile Picture")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.00 AM.png "Popup Image with Caption")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.20 AM.png "Edit Profile with Form validation")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.42 AM.png "Add Card invalid URL and disable Button")
+![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.59 AM.png "Delete Comfirmation Popup")
 
 ## Video Demonstration
 
