@@ -120,6 +120,7 @@ function createCard(cardData) {
     handleDeleteClick,
     handleLikeClick
   );
+
   return card.getCardElement();
 }
 
@@ -158,7 +159,6 @@ function handleDeleteClick(card) {
 
 // function to handle like click
 function handleLikeClick(card) {
-  console.log(card);
   if (card.isLiked) {
     api
       .disLikeCard(card._id)
@@ -258,8 +258,8 @@ function handleAddCardFormSubmit(inputValues) {
       name: inputValues.name,
       link: inputValues.link,
     })
-    .then(({ name, link }) => {
-      cardSection.addItem(createCard({ name, link }));
+    .then(({ name, link, _id }) => {
+      cardSection.addItem(createCard({ name, link, _id }));
       addCardModal.close();
       formValidators["card-form"].disableButton();
       addCardModal.reset();
