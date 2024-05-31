@@ -10,35 +10,41 @@
 
 ## Technologies and Techniques Used
 
-* HTML5
-  * Semantic HTML5 for structuring web pages.
-* CSS3
-  * BEM methodology for CSS organization.
-  * Flexbox and Grid for layout design.
-  * Animation for enhanced user experience.
-* JavaScript
-  * Arrays and Objects for data management.
-  * DOM manipulation for dynamic content.
-  * Event handling for interactive features.
-  * Form validation for user input.
-  * Debugging techniques for error resolution.
-  * OP principles for modular and maintainable code.
-* API
-  * RESTful API for data persistence.
-  * JSON format for data exchange between client and server.
-  * Error handling and response management.
-* Git & GitHub
-  * Version control and collaboration.
+- HTML5
+  - Semantic HTML5 for structuring web pages.
+- CSS3
+  - BEM methodology for CSS organization.
+  - Flexbox and Grid for layout design.
+  - Animation for enhanced user experience.
+- JavaScript
+  - Arrays and Objects for data management.
+  - DOM manipulation for dynamic content.
+  - Event handling for interactive features.
+  - Form validation for user input.
+  - Debugging techniques for error resolution.
+  - OP principles for modular and maintainable code.
+- API
+  - RESTful API for data persistence.
+  - JSON format for data exchange between client and server.
+  - Error handling and response management.
+- Git & GitHub
+  - Version control and collaboration.
 
 ## Screenshots
 
-![Screenshot 1](./images/responsive_layout.gif)
-
-Resposive design
+![Home Page](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png | width=100)
+![Edit Profile](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png | width=100)
+![Add Card](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png | width=100)
+![Create Profile Picture](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.54 AM.png | width=100)
+![Popup Image with Caption](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.00 AM.png | width=100)
+![Edit Profile with Form validation](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.20 AM.png | width=100)
+![Add Card invalid URL and disable Button](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.42 AM.png | width=100)
+![Delete Comfirmation Popup](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.59 AM.png | width=100)
 
 ## Video Demonstration
 
 [Watch the Video on Google Drive](https://drive.google.com/file/d/1CrEJpvGAuLGDMXcB7MrROz7abOmqNbjR/view?usp=drive_link)
 
 ## Figma
+
 [View the Project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
