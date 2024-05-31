@@ -10,25 +10,25 @@
 
 ## Technologies and Techniques Used
 
-- HTML5
-  . Semantic HTML5 for structuring web pages.
-- CSS3
-  . BEM methodology for CSS organization.
-  . Flexbox and Grid for layout design.
-  . Animation for enhanced user experience.
-- JavaScript
-  . Arrays and Objects for data management.
-  . DOM manipulation for dynamic content.
-  . Event handling for interactive features.
-  . Form validation for user input.
-  . Debugging techniques for error resolution.
-  . OP principles for modular and maintainable code.
-- API
-  . RESTful API for data persistence.
-  . JSON format for data exchange between client and server.
-  . Error handling and response management.
-- Git & GitHub
-  . Version control and collaboration.
+* HTML5
+  * Semantic HTML5 for structuring web pages.
+* CSS3
+  * BEM methodology for CSS organization.
+  * Flexbox and Grid for layout design.
+  * Animation for enhanced user experience.
+* JavaScript
+  * Arrays and Objects for data management.
+  * DOM manipulation for dynamic content.
+  * Event handling for interactive features.
+  * Form validation for user input.
+  * Debugging techniques for error resolution.
+  * OP principles for modular and maintainable code.
+* API
+  * RESTful API for data persistence.
+  * JSON format for data exchange between client and server.
+  * Error handling and response management.
+* Git & GitHub
+  * Version control and collaboration.
 
 ## Screenshots
 
