@@ -1,15 +1,18 @@
+// import classes
 import "../pages/index.css";
 
+// import modules
 import Api from "../components/Api.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import PopupWithConfirmation from "../components/PopupWithComfirmation.js";
+import PopupWithConfirm from "../components/PopupWithComfirm.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import ProfileEditImage from "../components/ProfileEditImage.js";
 
+// import constants
 import {
   formList,
   profileEditButton,
@@ -20,10 +23,10 @@ import {
   config,
 } from "../utils/constants.js";
 
-// ? ||--------------------------------------------------------------------------------||
-// ? ||---------------------------------- Instances -----------------------------------||
-// ? ||--------------------------------------------------------------------------------||
-
+// * ||--------------------------------------------------------------------------------||
+// * ||---------------------------------- Instances -----------------------------------||
+// * ||--------------------------------------------------------------------------------||
+// Create an instance of the Api class
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -32,51 +35,47 @@ const api = new Api({
   },
 });
 
-// modal instances
-
 // Create an instance of the Profile class
 const profile = new ProfileEditImage(
   ".profile__container",
   ".profile__edit-icon"
 );
-profile.setEventListeners();
 
-const deleteModal = new PopupWithConfirmation(
-  "#delete__modal",
-  handleDeleteCardFormSubmit
-);
-deleteModal.setEventListeners();
-
+// Create instances of the Popup classes
+const deleteModal = new PopupWithConfirm("#delete__modal", handleDeleteClick);
 const profileImageModal = new PopupWithForm(
   "#profile-image-modal",
   handleProfileImageFormSubmit
 );
-profileImageModal.setEventListeners();
-
 const proileEditModal = new PopupWithForm(
   "#profile__edit-modal",
   handleProfileFormSubmit
 );
-proileEditModal.setEventListeners();
-
 const addCardModal = new PopupWithForm(
   "#add-card-modal",
   handleAddCardFormSubmit
 );
-addCardModal.setEventListeners();
-
 const previewImageModal = new PopupWithImage("#preview__image-modal");
+
+// set event listeners
+deleteModal.setEventListeners();
+profileImageModal.setEventListeners();
+proileEditModal.setEventListeners();
+addCardModal.setEventListeners();
+profile.setEventListeners();
 previewImageModal.setEventListeners();
 
 // userInfo instance
 const userInfo = new UserInfo({
   nameElement: "#profile__title",
   aboutElement: ".profile__description",
+  avatarElement: ".profile__image",
 });
 
 // ? ||--------------------------------------------------------------------------------||
 // ? ||----------------------------------- API ----------------------------------------||
 // ? ||--------------------------------------------------------------------------------||
+// get user info
 api
   .getUserInfo()
   .then((userData) => {
@@ -90,7 +89,7 @@ api
     console.error(err);
   });
 
-// cardSection is an instance of the Section class
+// get initial cards
 let cardSection;
 api
   .getInitialCards()
@@ -109,29 +108,9 @@ api
     console.error(err);
   });
 
-// ! ||--------------------------------------------------------------------------------||
-// ! ||-------------------------------Function-----------------------------------------||
-// ! ||--------------------------------------------------------------------------------||
-
-function handleDeleteClick() {
-  deleteModal.open();
-}
-
-function handleCardImageClick(cardData) {
-  previewImageModal.open(cardData);
-}
-
-function handleLikeClick(card) {
-  api
-    .toggleCardLike(card.id, card.isLiked)
-    .then((res) => {
-      card.setIsLiked(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
-
+// ? ||--------------------------------------------------------------------------------||
+// ? ||-------------------------------Function-----------------------------------------||
+// ? ||--------------------------------------------------------------------------------||
 // function to create a card
 function createCard(cardData) {
   const card = new Card(
@@ -144,16 +123,71 @@ function createCard(cardData) {
   return card.getCardElement();
 }
 
-function renderCard(item) {
-  const cardElement = createCard(item);
+// function to render a card
+function renderCard(cardData) {
+  const cardElement = createCard(cardData);
   cardSection.addItem(cardElement);
+}
+
+// function to handle card image click
+function handleCardImageClick(cardData) {
+  previewImageModal.open(cardData);
+}
+
+// function to handle delete click
+function handleDeleteClick(card) {
+  deleteModal.open();
+
+  deleteModal.setSubmitAction(() => {
+    deleteModal.setSubmitButtonText("Deleting....");
+
+    api
+      .removeCard(card._id)
+      .then(() => {
+        card.handleDeleteCard();
+        deleteModal.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        deleteModal.setSubmitButtonText("Delete");
+      });
+  });
+}
+
+// function to handle like click
+function handleLikeClick(card) {
+  console.log(card);
+  if (card.isLiked) {
+    api
+      .disLikeCard(card._id)
+      .then(() => {
+        card.toggleLike();
+        card.isLiked = false;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+  if (!card.isLiked) {
+    api
+      .likeCard(card._id)
+      .then(() => {
+        card.toggleLike();
+        card.isLiked = true;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 }
 
 // * ||--------------------------------------------------------------------------------||
 // * ||-------------------------------Event Listeners----------------------------------||
 // * ||--------------------------------------------------------------------------------||
 
-// event listeners
+// profile edit button event listener
 profileEditButton.addEventListener("click", () => {
   const currentUser = userInfo.getUserInfo();
   nameInput.value = currentUser.name;
@@ -162,17 +196,20 @@ profileEditButton.addEventListener("click", () => {
   proileEditModal.open();
 });
 
+// add card button event listener
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
 
+// profile edit icon event listener
 profileEditIcon.addEventListener("click", () => {
   profileImageModal.open();
 });
+
 // * ||--------------------------------------------------------------------------------||
 // * ||-------------------------------Event Handler------------------------------------||
 // * ||--------------------------------------------------------------------------------||
-
+// profile image form submit handlers
 function handleProfileImageFormSubmit(inputValues) {
   profileImageModal.setSubmitButtonText("Saving....");
   api
@@ -180,6 +217,8 @@ function handleProfileImageFormSubmit(inputValues) {
     .then((res) => {
       userInfo.setUserAvatar(res);
       profileImageModal.close();
+      formValidators["profile-image-form"].disableButton();
+      profileImageModal.reset();
     })
     .catch((err) => {
       console.error(err);
@@ -210,6 +249,7 @@ function handleProfileFormSubmit(inputValues) {
     });
 }
 
+// add card form submit handlers
 function handleAddCardFormSubmit(inputValues) {
   addCardModal.setSubmitButtonText("Saving....");
 
@@ -232,29 +272,9 @@ function handleAddCardFormSubmit(inputValues) {
     });
 }
 
-function handleDeleteCardFormSubmit(card) {
-  deleteModal.setSubmitAction(() => {
-    deleteModal.setSubmitButtonText("Deleting....");
-
-    api
-      .removeCard(card.id)
-      .then(() => {
-        card.handleDeleteCard();
-        deleteModal.close();
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        deleteModal.setSubmitButtonText("Delete");
-      });
-  });
-}
-
 // ? ||--------------------------------------------------------------------------------||
 // ? ||-------------------------------Form Validation----------------------------------||
 // ? ||--------------------------------------------------------------------------------||
-
 // form validation
 const formValidators = {};
 const enableValidation = (formList) => {

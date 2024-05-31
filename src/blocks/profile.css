@@ -5,8 +5,8 @@
 }
 
 .profile__container:hover .profile__image {
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
+  opacity: 0.2;
+  transition: opacity 0.2s linear;
   display: inline-block;
 }
 
@@ -16,6 +16,8 @@
   border-radius: 50%;
   z-index: 1;
   position: relative;
+  object-fit: cover;
+  object-position: center;
 }
 
 .profile__edit-icon {

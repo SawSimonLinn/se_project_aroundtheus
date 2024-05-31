@@ -2,8 +2,6 @@ class ProfileEditImage {
   constructor(container, icon) {
     this._container = document.querySelector(container);
     this._icon = document.querySelector(icon);
-
-    // Add event listeners
   }
 
   showIcon() {

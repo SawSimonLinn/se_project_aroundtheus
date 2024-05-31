@@ -137,17 +137,17 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
-.modal__delete-container {
+.modal__container_delete {
   max-width: 358px;
   max-height: 109px;
 }
 
-.modal__delete-button {
+.modal__button_delete {
   margin: 0;
   padding: 13px 125px;
 }
 
-.modal__delete-heading {
+.modal__heading_delete {
   margin-bottom: 38px;
 }
 
@@ -185,12 +185,12 @@
     margin: 0 0 20px;
   }
 
-  .modal__delete-button {
+  .modal__button_delete {
     margin: 0;
     padding: 13px 105px;
   }
 
-  .modal__delete-heading {
+  .modal__heading_delete {
     margin-bottom: 38px;
   }
 }

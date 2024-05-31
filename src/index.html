@@ -18,8 +18,8 @@
         <section class="profile page__section">
           <div class="profile__container">
             <img
-              src="<%=require('./images/jacques-cousteau.jpg')%>"
-              alt="Jacques Cousteau avatar"
+              src="#"
+              alt="Profile Picture"
               class="profile__image"
               id="profile__image"
               draggable="false"
@@ -172,15 +172,15 @@
 
       <!-- Delete Card Modal -->
       <div class="modal" id="delete__modal">
-        <div class="modal__container modal__delete-container">
+        <div class="modal__container modal__container_delete">
           <button
             type="button"
             class="modal__close-button"
             id="modal__close-button"
           ></button>
           <form class="modal__form">
-            <h3 class="modal__heading modal__delete-heading">Are you sure?</h3>
-            <button type="submit" class="modal__button modal__delete-button">
+            <h3 class="modal__heading modal__heading_delete">Are you sure?</h3>
+            <button type="submit" class="modal__button modal__button_delete">
               Yes
             </button>
           </form>
@@ -195,10 +195,8 @@
             class="modal__close-button"
             id="modal__close-button"
           ></button>
-          <form class="modal__form">
-            <h3 class="modal__heading modal__delete-heading">
-              Change profile Picture
-            </h3>
+          <form class="modal__form" name="profile-image-form">
+            <h3 class="modal__heading">Change profile Picture</h3>
             <label class="modal__error-wrapper">
               <input
                 type="url"
@@ -213,7 +211,9 @@
                 id="card__url-input-error"
               ></span>
             </label>
-            <button type="submit" class="modal__button">Save</button>
+            <button type="submit" class="modal__button modal__button_disabled">
+              Save
+            </button>
           </form>
         </div>
       </div>
