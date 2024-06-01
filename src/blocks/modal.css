@@ -25,7 +25,7 @@
 .modal__container {
   background-color: #fff;
   width: 430px;
-  height: 330px;
+  max-height: 330px;
   margin: auto;
   padding: 36px;
   border-radius: 10px;
@@ -137,6 +137,20 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
+.modal__container_delete {
+  max-width: 358px;
+  max-height: 109px;
+}
+
+.modal__button_delete {
+  margin: 0;
+  padding: 13px 125px;
+}
+
+.modal__heading_delete {
+  margin-bottom: 38px;
+}
+
 @media screen and (max-width: 580px) {
   .modal__container {
     width: 238px;
@@ -169,5 +183,14 @@
   .modal__input {
     max-width: 233px;
     margin: 0 0 20px;
+  }
+
+  .modal__button_delete {
+    margin: 0;
+    padding: 13px 105px;
+  }
+
+  .modal__heading_delete {
+    margin-bottom: 38px;
   }
 }
