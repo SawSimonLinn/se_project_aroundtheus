@@ -32,9 +32,7 @@
 
 ## Screenshots
 
-# <<<<<<< HEAD
 
-<<<<<<< HEAD
 ![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png "Hompage")
 ![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png "Edit Profile")
 ![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png "Add Card")
