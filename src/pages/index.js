@@ -14,8 +14,8 @@ import ProfileEditImage from "../components/ProfileEditImage.js";
 
 // import constants
 import {
-  formList,
   profileEditButton,
+  formList,
   profileEditIcon,
   addCardButton,
   nameInput,
