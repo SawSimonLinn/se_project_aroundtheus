@@ -9,15 +9,15 @@ module.exports = {
     main: "./src/pages/index.js",
   },
   output: {
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "build"), // Ensure this is set to "build"
     filename: "main.js",
     publicPath: "",
   },
   target: ["web", "es5"],
   stats: "errors-only",
-  mode: "development",
+  mode: "production",
   devServer: {
-    static: path.resolve(__dirname, "docs"),
+    static: path.resolve(__dirname, "build"), // Ensure this is set to "build"
     compress: true,
     port: 8080,
     open: true,
