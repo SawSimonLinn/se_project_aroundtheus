@@ -1,51 +1,75 @@
-# Project 3: Around The U.S.
+# Around The U.S.
 
-[Visit the "Around The U.S." Website](https://sawsimonlinn.github.io/se_project_aroundtheus/)
+An interactive web application that allows users to explore various locations across the United States, customize their profiles, and manage a personal collection of photos.
 
-[Check out the GitHub Repository](https://github.com/SawSimonLinn/se_project_aroundtheus)
+![Around The U.S. Screenshot](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png "Hompage")
 
 ## Description
 
-"Around The U.S." is a responsive web app that allows users to post their favorite pictures of locations they've visited, like the pictures, and update their profile information. The project emphasizes Vanilla JavaScript with Object-Oriented Programming (OOP) principles and utilizes a RESTful API to ensure data persistence.
+Discover America with "Around the US"! Customize your profile, add stunning photos and titles, then explore six unique layout cards showcasing the nation's beauty. Easily manage your content with delete and like options. Plus, enjoy a seamless experience on any device with our fully responsive website.
 
-## Technologies and Techniques Used
+## Features
 
-- HTML5
-  - Semantic HTML5 for structuring web pages.
-- CSS3
-  - BEM methodology for CSS organization.
-  - Flexbox and Grid for layout design.
-  - Animation for enhanced user experience.
-- JavaScript
-  - Arrays and Objects for data management.
-  - DOM manipulation for dynamic content.
-  - Event handling for interactive features.
-  - Form validation for user input.
-  - Debugging techniques for error resolution.
-  - OP principles for modular and maintainable code.
-- API
-  - RESTful API for data persistence.
-  - JSON format for data exchange between client and server.
-  - Error handling and response management.
-- Git & GitHub
-  - Version control and collaboration.
+- **Profile Customization:** Update your personal information to personalize your experience.
+- **Photo Gallery:** Add, edit, and delete photos with titles to create a unique collection.
+- **Responsive Design:** Enjoy a seamless experience across all devices.
 
-## Screenshots
+![Profile Customization GIF](./src/images/readme/gif.gif)
 
+## Live Demo
 
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.27 AM.png "Hompage")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.43 AM.png "Edit Profile")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.50 AM.png "Add Card")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.51.54 AM.png "Create Profile Picture")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.00 AM.png "Popup Image with Caption")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.20 AM.png "Edit Profile with Form validation")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.42 AM.png "Add Card invalid URL and disable Button")
-![](./src/images/readme/Screenshot%202024-05-31%20at%2012.52.59 AM.png "Delete Comfirmation Popup")
+Experience the live version of the project here: [Around The U.S. Live Demo](https://sawsimonlinn.github.io/se_project_aroundtheus/)
 
-## Video Demonstration
+## Demo Video
 
-[Watch the Video on Google Drive](https://drive.google.com/file/d/1CrEJpvGAuLGDMXcB7MrROz7abOmqNbjR/view?usp=drive_link)
+For a comprehensive walkthrough of the application's features, watch the demo video:
 
-## Figma
+[![Around The U.S. Demo Video](https://demirsondaj.com.tr/wp-content/uploads/demo/placeholder.svg)](https://drive.google.com/file/d/1CrEJpvGAuLGDMXcB7MrROz7abOmqNbjR/view?usp=drive_link)
 
-[View the Project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+## Deployment and System Requirements
+
+To run this project locally, ensure you have the following:
+
+- **Node.js:** Version 14.x or higher
+- **npm:** Version 6.x or higher
+- **Webpack:** Version 5.x or higher
+
+**Deployment Instructions:**
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/SawSimonLinn/se_project_aroundtheus.git
+   ```
+
+   ```bash
+   cd se_project_aroundtheus
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+
+   ```bash
+   npm run build
+   ```
+
+5. Deploy the production build:
+
+   The production-ready files will be in the `dist` folder. You can deploy these files to your preferred hosting service.
+
+### Future Improvements
+
+- Enhance User Interactions: Implement animations using CSS and JavaScript to achieve a more dynamic user experience.
+- Expand Photo Gallery: Allow users to categorize photos using tags to achieve better organization.
+- Improve Accessibility: Conduct an accessibility audit using tools like Lighthouse to achieve a more inclusive design.
