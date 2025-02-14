@@ -1,5 +1,6 @@
 {
   "name": "se_project_aroundtheus",
+  "homepage": "https://sawsimonlinn.github.io/se_project_aroundtheus/",
   "version": "1.0.0",
   "description": "[Link to \"Around The U.S.\" Website](https://sawsimonlinn.github.io/se_project_aroundtheus/)",
   "main": "index.js",
@@ -21,7 +22,7 @@
     "css-loader": "6.7.1",
     "cssnano": "5.1.12",
     "file-loader": "^6.2.0",
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss-loader": "7.0.1",
